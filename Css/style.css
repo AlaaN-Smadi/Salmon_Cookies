@@ -22,3 +22,24 @@
     margin-left: 30px;
     background-color: coral;
 }
+
+#tableId{
+    border: solid 1px red;
+}
+
+#headID{
+    background-color: silver;
+    border: solid 1px red;
+}
+#firstColomn{
+    background-color: aqua;
+
+}
+#totalCell{
+    border: solid 1px green;
+}
+#lastRow{
+    border: solid 1px black;
+    background-color: darkgoldenrod;
+    color:indigo;
+}
