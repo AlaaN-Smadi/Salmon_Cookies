@@ -1,5 +1,10 @@
+*{
+  box-sizing: border-box;
+}
+
 html{
     background: #ffdcb1;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
   header{
     /* background: #5f3e36; */
@@ -25,7 +30,7 @@ html{
     margin: 25px;
     padding: 1px;
     padding: 15px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.295);
     text-decoration: none;
     border-radius: 2px;
     color: wheat; 
@@ -51,7 +56,7 @@ html{
     margin-top: 35px;
     /* color: chocolate; */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: rgba(115, 255, 0, 0.452);
+    background-color: rgba(115, 255, 0, 0.199);
     width: 50%;
     padding: 20px;
     border-top-right-radius: 100%;
@@ -72,13 +77,13 @@ html{
     margin-top: 35px;
     /* color: chocolate; */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: rgba(115, 255, 0, 0.452);
+    background-color: rgba(115, 255, 0, 0.199);
     width: 50%;
     padding: 20px;
     border-top-right-radius: 100%;
     border-bottom-right-radius: 100%;
     font-size: 50px;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
     /* margin: 25px; */
 }
 #itemslist{
@@ -109,6 +114,8 @@ html{
 #firstColomn{
     background-color: #5f3e36;
     color: palegoldenrod;
+    border: solid 1px wheat;
+    border-left: solid 1px red;
     padding: 5px;   
 
 }
@@ -159,4 +166,32 @@ html{
     width: 100%;
     height: 500px;
     border-radius: 50px;
+}
+
+div{
+  
+  /* border: solid 1px green; */
+  margin: 2px;
+}
+#divImage div{
+  float: right;
+  height: 200px;
+  
+} 
+#divImage{
+  margin-left: 18%;
+  /* text-align: center; */
+  padding: 25px;
+  height: 250px;
+  display: inline-block;
+}
+div img{
+  margin-right: 10px;
+  display: inline-block;
+}
+div h3{
+  width: 250px;
+  font-size: medium;
+  display: inline-block;
+  
 }
