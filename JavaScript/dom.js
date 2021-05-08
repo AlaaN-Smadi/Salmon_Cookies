@@ -353,8 +353,6 @@ Last Point Of Objects Area
 ------------  Start Point of Lab 07  ------------
 */
 
-// add places from form
-
 
 let divEl = document.getElementById('salesData');
 let tableEl = document.createElement('table');
@@ -398,6 +396,8 @@ totalEachPlace();
 
 let totalHourCookies = [];
 function totalPerHour() {
+    totalHourCookies = [];
+
     for (let row = 0; row <= workHours; row++) {
         let total = 0;
         for (let index = 0; index < objectsArray.length; index++) {
@@ -405,9 +405,10 @@ function totalPerHour() {
         }
         totalHourCookies.push(total);
     }
+
 }
 
-totalPerHour()
+totalPerHour();
 
 //  loops => to enter table values
 let row1 = objectsArray.length;
@@ -415,7 +416,9 @@ for (let row = 0; row <= row1; row++) {
 
     let rowEl = document.createElement('tr');
     tableEl.appendChild(rowEl);
-
+    if (row == row1) {
+        rowEl.id = "totalRow";
+    }
     for (let cell = 0; cell < 16; cell++) {
         let innerCell = document.createElement('td');
         rowEl.appendChild(innerCell);
@@ -443,10 +446,9 @@ for (let row = 0; row <= row1; row++) {
 }
 
 
-
-
-
-
+// -------------
+// add new area
+// -------------
 let newStore = document.getElementById('newStore');
 
 newStore.addEventListener("submit", newPlaceFunction);
@@ -455,16 +457,38 @@ function newPlaceFunction(event) {
 
     event.preventDefault();
 
-    let newArea = new Cookies(3, 24, 1.2, 'Tokyo');
+    let newMin = event.target.minmum.value;
+    let average = event.target.average.value;
+    let maximum = event.target.maximum.value;
+    let Name = event.target.Name.value;
+
+    let newArea = new Cookies(newMin,maximum,average,Name);
     newArea.addingCustomers();
     newArea.addingCookies();
+    totalPerHour();
 
-    let rowEl2 = document.createElement('tr');
-    tableEl.appendChild(rowEl2);
 
+    // add total for each place
+    let totalSum = 0;
+    for (let num = 0; num < workHours; num++) {
+        totalSum = totalSum + newArea.numberOfCookies[num];
+    }
+    newArea.numberOfCookies.push(totalSum);
+    // add total per hour
+
+    tableEl.deleteRow(objectsArray.length);
+
+    let totalOfTotal = 0;
+    for (let t = 0; t < objectsArray.length; t++) {
+        totalOfTotal = totalOfTotal + objectsArray[t].numberOfCookies[14];
+    }
+
+
+    
     for (let count = 0; count < 2; count++) {
+        let rowEl2 = document.createElement('tr');
+        tableEl.appendChild(rowEl2);
 
-        let totalSum = 0;
         for (let cell = 0; cell < 16; cell++) {
             if (count == 0) {
                 let innerCell2 = document.createElement('td');
@@ -474,20 +498,31 @@ function newPlaceFunction(event) {
                 if (cell == 0) {
                     innerCell2.id = 'firstColomn';
                     innerCell2.textContent = newArea.name;
-                } else if (cell < 15) {
-                    // totalSum = totalSum + parseInt(newArea.numberOfCookies[cell - 1])
+                } else {
                     innerCell2.textContent = parseInt(newArea.numberOfCookies[cell - 1]);
                     innerCell2.id = 'totalCell';
-                    
-                } else {
-                    innerCell.textContent = parseInt(newArea.numberOfCookies[cell]);
                 }
 
-            } else {
-                
+
+
+            } else if (count == 1) {
+                let innerCell2 = document.createElement('td');
+                rowEl2.appendChild(innerCell2);
+                innerCell2.id = 'innerID';
+
+                if (cell == 0) {
+                    innerCell2.id = 'firstColomn';
+                    innerCell2.textContent = 'Total';
+                } else if(cell<15){
+
+                    innerCell2.textContent = parseInt(totalHourCookies[cell - 1]);
+                    innerCell2.id = 'lastRow';
+                }else{
+                    innerCell2.textContent = parseInt(totalOfTotal);
+                    innerCell2.id = 'lastRow';
+                }
             }
-            totalEachPlace();
-            totalPerHour()
+
 
         }
     }
