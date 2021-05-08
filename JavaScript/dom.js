@@ -203,10 +203,12 @@ First Point Of Objects Area
 
 let objectsArray = [];
 // constructure function 
-function Cookies(minHourCustomers, maxHourCustomers, avgHourCookies) {
+function Cookies(minHourCustomers, maxHourCustomers, avgHourCookies, name) {
     this.minHourCustomers = minHourCustomers;  //  minimum number of customers
     this.maxHourCustomers = maxHourCustomers;  // maximum number of customers
     this.avgHourCookies = avgHourCookies; // average cookies per customer
+
+    this.name = name;
 
     this.numberOfCookies = [];  // number of cookies => dynamic
 
@@ -216,11 +218,11 @@ function Cookies(minHourCustomers, maxHourCustomers, avgHourCookies) {
 }
 
 // generate bjects
-let seattle = new Cookies(23, 65, 6.3);
-let Tokyo = new Cookies(3, 24, 1.2);
-let Dubai = new Cookies(11, 38, 3.7);
-let Paris = new Cookies(20, 38, 2.3);
-let Lima = new Cookies(2, 16, 4.6);
+let seattle = new Cookies(23, 65, 6.3, 'seattle');
+let Tokyo = new Cookies(3, 24, 1.2, 'Tokyo');
+let Dubai = new Cookies(11, 38, 3.7, 'Dubai');
+let Paris = new Cookies(20, 38, 2.3, 'Paris');
+let Lima = new Cookies(2, 16, 4.6, 'Lima');
 
 // generate functions 
 Cookies.prototype.addingCustomers = function () {
@@ -350,6 +352,10 @@ Last Point Of Objects Area
 /*
 ------------  Start Point of Lab 07  ------------
 */
+
+// add places from form
+
+
 let divEl = document.getElementById('salesData');
 let tableEl = document.createElement('table');
 
@@ -376,28 +382,36 @@ for (let i = 0; i < 16; i++) {  // loop => To create header elements of table
 
 //  loops => to add total feild for each place
 
-for (let index = 0; index < objectsArray.length; index++) {
-    let sum = 0;
-    for (let num = 0; num < workHours; num++) {
-        sum = sum + objectsArray[index].numberOfCookies[num];
+function totalEachPlace() {
+    for (let index = 0; index < objectsArray.length; index++) {
+        let sum = 0;
+        for (let num = 0; num < workHours; num++) {
+            sum = sum + objectsArray[index].numberOfCookies[num];
+        }
+        objectsArray[index].numberOfCookies.push(sum);
     }
-    objectsArray[index].numberOfCookies.push(sum);
 }
+
+totalEachPlace();
 
 // loops => to create array of total cookies per hour
 
 let totalHourCookies = [];
-for (let row = 0; row <= workHours; row++) {
-    let total = 0;
-    for (let index = 0; index < objectsArray.length; index++) {
-        total = total + objectsArray[index].numberOfCookies[row];
+function totalPerHour() {
+    for (let row = 0; row <= workHours; row++) {
+        let total = 0;
+        for (let index = 0; index < objectsArray.length; index++) {
+            total = total + objectsArray[index].numberOfCookies[row];
+        }
+        totalHourCookies.push(total);
     }
-    totalHourCookies.push(total);
 }
 
-//  loops => to enter table values
+totalPerHour()
 
-for (let row = 0; row < 6; row++) {
+//  loops => to enter table values
+let row1 = objectsArray.length;
+for (let row = 0; row <= row1; row++) {
 
     let rowEl = document.createElement('tr');
     tableEl.appendChild(rowEl);
@@ -407,46 +421,77 @@ for (let row = 0; row < 6; row++) {
         rowEl.appendChild(innerCell);
         innerCell.id = 'innerID';
 
-        if ((cell == 0) && (row !== 5)) {
+        if ((cell == 0) && (row !== row1)) {
             innerCell.id = 'firstColomn';
-            switch (row) { //  Name of areas
+            innerCell.textContent = objectsArray[row].name;
 
-                case 0:
-                    innerCell.textContent = 'Seattle';
-                    break;
-                case 1:
-                    innerCell.textContent = 'Tokyo';
-                    break;
-                case 2:
-                    innerCell.textContent = 'Dubai';
-                    break;
-                case 3:
-                    innerCell.textContent = 'Paris';
-                    break;
-                case 4:
-                    innerCell.textContent = 'Lima';
-                    break;
-                case 5:
-                    innerCell.textContent = 'Total';
-                    break;
-            }
-        } else if (row !== 5) {
+        } else if (row !== row1) {
 
             innerCell.textContent = parseInt(objectsArray[row].numberOfCookies[cell - 1]);
             innerCell.id = 'totalCell';
-        }else{
+        } else {
             innerCell.id = 'lastRow';
-            if(cell == 0)
+            if (cell == 0)
                 innerCell.textContent = 'Total';
-            else{
-                innerCell.textContent = parseInt(totalHourCookies[cell-1]);
+            else {
+                innerCell.textContent = parseInt(totalHourCookies[cell - 1]);
             }
         }
 
-        
-
     }
 
-    
+}
+
+
+
+
+
+
+let newStore = document.getElementById('newStore');
+
+newStore.addEventListener("submit", newPlaceFunction);
+
+function newPlaceFunction(event) {
+
+    event.preventDefault();
+
+    let newArea = new Cookies(3, 24, 1.2, 'Tokyo');
+    newArea.addingCustomers();
+    newArea.addingCookies();
+
+    let rowEl2 = document.createElement('tr');
+    tableEl.appendChild(rowEl2);
+
+    for (let count = 0; count < 2; count++) {
+
+        let totalSum = 0;
+        for (let cell = 0; cell < 16; cell++) {
+            if (count == 0) {
+                let innerCell2 = document.createElement('td');
+                rowEl2.appendChild(innerCell2);
+                innerCell2.id = 'innerID';
+
+                if (cell == 0) {
+                    innerCell2.id = 'firstColomn';
+                    innerCell2.textContent = newArea.name;
+                } else if (cell < 15) {
+                    // totalSum = totalSum + parseInt(newArea.numberOfCookies[cell - 1])
+                    innerCell2.textContent = parseInt(newArea.numberOfCookies[cell - 1]);
+                    innerCell2.id = 'totalCell';
+                    
+                } else {
+                    innerCell.textContent = parseInt(newArea.numberOfCookies[cell]);
+                }
+
+            } else {
+                
+            }
+            totalEachPlace();
+            totalPerHour()
+
+        }
+    }
 
 }
+
+
