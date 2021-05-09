@@ -1,0 +1,377 @@
+*{
+  box-sizing: border-box;
+}
+
+html{
+    background: #ffdcb1;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  header{
+    /* background: #5f3e36; */
+    background: linear-gradient( #5f3e36,  #5f3e36be ,#b3897f49,#5f3e36be, #5f3e36);
+    text-align: left;
+    margin-bottom: 15px;
+    
+  }
+  
+  nav{
+    text-align: center;
+  }
+  nav ul li{
+    display: inline-block;
+    /* background-color: black; */
+    /* padding: 15px; */
+    margin: 15px;
+    margin-bottom: 15px;
+
+  }
+  
+  nav ul li a{
+    margin: 25px;
+    padding: 1px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.295);
+    text-decoration: none;
+    border-radius: 2px;
+    color: wheat; 
+
+  }
+
+  nav ul li a:hover{
+    background: rgba(218, 86, 10, 0.849);
+    transition-duration: 0.7s;
+  cursor: pointer; 
+  border-radius: 15px;
+  
+  }
+
+  
+/* #pointer{
+
+    background: olive;
+    transition-duration: 0.4s;
+  cursor: pointer;    
+} */
+
+  #titleIndex{
+    display: inline-block;
+    margin-top: 35px;
+    /* color: chocolate; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgba(115, 255, 0, 0.199);
+    width: 50%;
+    padding: 20px;
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+    font-size: 50px;
+    /* margin: 25px; */
+}
+
+
+#areaId{
+    font-size: 25px;
+    font-family: serif;
+    margin: 5px;
+
+}
+#title{
+    display: inline-block;
+    margin-top: 35px;
+    /* color: chocolate; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgba(115, 255, 0, 0.199);
+    width: 50%;
+    padding: 20px;
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+    font-size: 50px;
+    /* margin-bottom: 50px; */
+    /* margin: 25px; */
+}
+#itemslist{
+    display: block;
+    
+    margin-left: 30px;
+    
+}
+#total{
+    display: inline-block;
+    margin-left: 30px;
+    background-color: coral;
+}
+
+#tableId{
+    border: solid 1px red;
+    margin-left: 4.5%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#headID{
+    background-color: silver;
+    border: solid 1px red;
+    text-align: center;
+    padding: 5px;
+
+    
+}
+#firstColomn{
+    background-color: #5f3e36;
+    color: palegoldenrod;
+    border: solid 1px wheat;
+    border-left: solid 1px red;
+    padding: 5px;   
+
+}
+#totalCell{
+    border: solid 1px green;
+    text-align: center;
+    padding: 5px;
+}
+#lastRow{
+    border: solid 1px black;
+    background-color: darkgoldenrod;
+    color:indigo;
+    padding: 5px;
+    text-align: center;
+}
+
+#fishImage{
+    display: inline-block;
+    float: left;
+    width: 35%;
+    margin: 3%;
+}
+#rightP{
+    display: inline-block;
+    background: #5f3e3681;
+    float: right;
+    width: 50%;
+    margin: 3%;
+    padding: 15px;
+}
+#rightP h4{
+    display: inline-block;
+    font-size:25px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+#lowerDiv{
+    display: inline-block;
+    width: 75%;
+    height: 500px;
+    margin-top: 15px;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    border-radius: 50px;
+    background: rgba(153, 95, 42, 0.63);
+}
+#lowerImage{
+    display: inline-block;
+    width: 100%;
+    height: 500px;
+    border-radius: 50px;
+}
+
+div{
+  
+  /* border: solid 1px green; */
+  margin: 2px;
+}
+#divImage div{
+  float: right;
+  height: 200px;
+  
+} 
+#divImage{
+  /* margin-left: 12%; */
+  /* text-align: center; */
+  float: right;
+  padding: 25px;
+  height: 250px;
+  margin-right: 12%;
+  /* border: 1px solid white; */
+  width: 45%;
+  margin-top: 10px;
+  display: inline-block;
+}
+div img{
+  margin-right: 10px;
+  display: inline-block;
+}
+div h3{
+  width: 250px;
+  font-size: medium;
+  display: inline-block;
+  
+}
+
+#newStore1{
+  margin: 35px;
+  margin-top: 25px;
+  padding: 10px;
+  display: block;
+  border: 3px solid black;
+  float: left;
+  width: 150px;
+}
+tr{
+  background: #0000;
+}
+tr:hover{
+  background: #ffdcb1;
+  transition-duration: 0.7s;
+  
+}
+#deletRow{
+  /* margin-top: 7.5px; */
+  padding: 25px;
+}
+#deletRow1{
+  padding: 25px;
+  width: 150px;
+
+  border: 3px solid black;
+}
+
+#sectionForm{
+  /* border: 1px solid white; */
+  width: 40%;
+  float: left;
+  margin-left: 2%;
+  margin-top: 10px;
+}
+#StoreName{
+  margin-top: 7.5px;
+  margin-bottom: 7.5px;
+}
+
+
+#foot{
+  /* height: 200px; */
+  padding: 35px;
+  background: linear-gradient(#c5988c, #f7c9bd, #c5988c);
+}
+#commentDiv{
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+#foot h3{
+  text-align: center;
+  margin-bottom: 5px;
+}
+#commentDiv li{
+  display: inline-block;
+  margin-left: 20px;
+  padding: 4px;
+  padding-left:10px ;
+  padding-right: 10px;
+  background: brown;
+  color: #ffdcb1;
+  cursor: pointer;
+  /* border: 1px solid black; */
+}
+#inputComment{
+  display: inline-block;
+}
+#commentSection{
+  margin: 25px;
+  height: auto;
+  text-align: center;
+  /* display: inline-block; */
+  border: 1px solid rosybrown;
+  border-radius: 20%;
+}
+#imageCommentId{
+  display: inline-block;
+  width: 25px;
+  margin-left: 25px;
+  height: 25px;
+}
+#textPosted{
+  display: inline-block;
+}
+.products{
+  margin: 35px;
+  height: 280px;
+  padding-top:25px ;
+  border-radius: 30px;
+  margin-left: 150px;
+  margin-right: 150px;
+  /* height: 150px; */
+  border: 2px solid rgba(50, 83, 23, 0.199);;
+}
+
+.producleft{
+  float: left;
+  width: 45%;
+  /* border: 1px solid black; */
+  margin-right: 2%;
+  display: inline-block;
+}
+.productright{
+  float: right;
+  width: 45%;
+  /* border: 1px solid black; */
+  margin-left: 2%;
+  display: inline-block;
+}
+#fishImage2{
+  display: inline-block;
+    float: left;
+    width: 75%;
+    /* height: 85%; */
+    margin: 3%;
+}
+#fishImage20{
+  display: inline-block;
+  float: right;
+  width: 75%;
+  margin-right:3% ;
+}
+#cookiesDescription{
+  text-align: center;
+  height: 100px;
+  margin-top: 35px;
+  line-height: 35px;
+}
+#contactUp{
+  width: 75%;
+  margin: 150px;
+  margin-top: 60px;
+  margin-bottom: 35px;
+  display: inline-block;
+  /* margin-right: 150px; */
+  height: 400px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+
+  border-radius: 35px;
+  background: rgb(228, 195, 123);
+  border: 1px solid rgba(240, 138, 22, 0.712);
+}
+#contactDown{
+  width: 75%;
+  margin-left: 150px;
+  display: inline-block;
+  /* margin-right: 150px; */
+  /* height: 350px; */
+  border-radius: 35px;
+  margin-bottom: 50px;
+  background: rgb(228, 195, 123);
+  border: 1px solid rgba(240, 138, 22, 0.712);
+}
+.h2Header{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: x-large;
+}
+#middleDiv{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#Titel{
+  text-align: center;
+  margin-top: 35px;
+  margin-right: 50px;
+}
