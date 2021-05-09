@@ -444,8 +444,62 @@ for (let row = 0; row <= row1; row++) {
     }
 
 }
+// -------------
+// delete place 
+// -------------
+function totalOfTotal() {
+    let totalOfTotal = 0;
+    for (let t = 0; t < objectsArray.length; t++) {
+        totalOfTotal = totalOfTotal + objectsArray[t].numberOfCookies[14];
+    }
+    return totalOfTotal;
+}
+let deleteStore = document.getElementById('deletRow');
+deleteStore.addEventListener('submit', deleteFunction);
+
+function deleteFunction(event) {
+
+    event.preventDefault();
+
+    let deleteName = event.target.StoreName.value;
+
+    for (let couunta = 0; couunta < objectsArray.length; couunta++) {
+        if (objectsArray[couunta].name === deleteName) {
+            tableEl.deleteRow(couunta + 1);
+            // console.log(objectsArray.length);
+            objectsArray.splice(couunta, 1);
+            break;
+        } else {
+            continue;
+        }
+    }
+
+    totalPerHour();
+    tableEl.deleteRow(objectsArray.length + 1);
+    let totalOfTotal2 = totalOfTotal();
 
 
+    let rowEl2 = document.createElement('tr');
+    tableEl.appendChild(rowEl2);
+    for (let cell = 0; cell < 16; cell++) {
+        let innerCell2 = document.createElement('td');
+        rowEl2.appendChild(innerCell2);
+        innerCell2.id = 'innerID';
+
+        if (cell == 0) {
+            innerCell2.id = 'firstColomn';
+            innerCell2.textContent = 'Total';
+        } else if (cell < 15) {
+
+            innerCell2.textContent = parseInt(totalHourCookies[cell - 1]);
+            innerCell2.id = 'lastRow';
+        } else {
+            innerCell2.textContent = parseInt(totalOfTotal2);
+            innerCell2.id = 'lastRow';
+        }
+    }
+
+}
 // -------------
 // add new area
 // -------------
@@ -462,7 +516,7 @@ function newPlaceFunction(event) {
     let maximum = event.target.maximum.value;
     let Name = event.target.Name.value;
 
-    let newArea = new Cookies(newMin,maximum,average,Name);
+    let newArea = new Cookies(newMin, maximum, average, Name);
     newArea.addingCustomers();
     newArea.addingCookies();
     totalPerHour();
@@ -478,13 +532,10 @@ function newPlaceFunction(event) {
 
     tableEl.deleteRow(objectsArray.length);
 
-    let totalOfTotal = 0;
-    for (let t = 0; t < objectsArray.length; t++) {
-        totalOfTotal = totalOfTotal + objectsArray[t].numberOfCookies[14];
-    }
+    let totalOfTotal3 = totalOfTotal();
 
 
-    
+
     for (let count = 0; count < 2; count++) {
         let rowEl2 = document.createElement('tr');
         tableEl.appendChild(rowEl2);
@@ -513,12 +564,12 @@ function newPlaceFunction(event) {
                 if (cell == 0) {
                     innerCell2.id = 'firstColomn';
                     innerCell2.textContent = 'Total';
-                } else if(cell<15){
+                } else if (cell < 15) {
 
                     innerCell2.textContent = parseInt(totalHourCookies[cell - 1]);
                     innerCell2.id = 'lastRow';
-                }else{
-                    innerCell2.textContent = parseInt(totalOfTotal);
+                } else {
+                    innerCell2.textContent = parseInt(totalOfTotal3);
                     innerCell2.id = 'lastRow';
                 }
             }

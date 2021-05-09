@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="Css/reset.css">
     <link rel="stylesheet" href="Css/style.css">
 
-    <link rel="icon" href="https://github.com/LTUC/amman-irbid-201d24/blob/main/class-08/lab-b/assets/fish.jpg?raw=true" type="image/gif" sizes="16x16">
-    
+    <link rel="icon" href="https://github.com/LTUC/amman-irbid-201d24/blob/main/class-08/lab-b/assets/fish.jpg?raw=true"
+        type="image/gif" sizes="16x16">
+
 
     <title> Sales Data </title>
 </head>
@@ -22,12 +23,12 @@
         <nav>
             <ul>
                 <li>
-                    <a>
+                    <a href="products.html">
                         Our Products
                     </a>
                 </li>
                 <li>
-                    <a>
+                    <a href="contact.html">
                         Contact Us
                     </a>
                 </li>
@@ -44,14 +45,14 @@
 
     <main>
 
-        
+
 
         <div id="salesData">
 
         </div>
-        
 
-        
+
+
 
         <div id="divImage">
 
@@ -64,26 +65,40 @@
             </div>
         </div>
 
-        <form action="" id="newStore">
-            <fieldset id="newStore1">
-                <legend> Add New Store</legend>
 
-                <label for="Name">Name</label>
-                <input id="Name" name="Name" type="text" placeholder="Name">
+        <section id="sectionForm">
+            <form action="" id="newStore">
+                <fieldset id="newStore1">
+                    <legend> Add New Store</legend>
 
-                <label for="minmum">minmum</label>
-                <input id="minmum" name="minmum" type="text" placeholder="minmum">
-                
-                <label for="maximum">maximum</label>
-                <input id="maximum" name="maximum" type="text" placeholder="maximum">
-                
-                <label for="average">average</label>
-                <input id="average" name="average" type="text" placeholder="average">
+                    <label for="Name">Name</label>
+                    <input id="Name" name="Name" type="text" placeholder="Name">
 
-                <input type="submit" value="submit" id="soso">
+                    <label for="minmum">minmum</label>
+                    <input id="minmum" name="minmum" type="text" placeholder="minmum">
 
-            </fieldset>
-        </form>
+                    <label for="maximum">maximum</label>
+                    <input id="maximum" name="maximum" type="text" placeholder="maximum">
+
+                    <label for="average">average</label>
+                    <input id="average" name="average" type="text" placeholder="average">
+
+                    <input type="submit" value="submit" id="soso">
+
+                </fieldset>
+            </form>
+
+            <form action="" id="deletRow">
+                <fieldset id="deletRow1">
+                    <legend> Delete Store </legend>
+
+                    <label for="StoreName">StoreName</label>
+                    <input id="StoreName" name="StoreName" type="text" placeholder="StoreName">
+
+                    <input type="submit" value="delete" id="soso">
+                </fieldset>
+            </form>
+        </section>
 
 
         <script src="JavaScript/dom.js"></script>
